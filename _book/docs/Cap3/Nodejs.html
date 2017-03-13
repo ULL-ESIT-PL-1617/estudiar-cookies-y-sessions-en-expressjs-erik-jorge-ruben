@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Node.js | Práctica 4: Estudiar las Cookies y las Sessiones en ExpressJS</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../docs/Cap4/Git-GitHub.html" />
+    
+    
+    <link rel="prev" href="../../docs/Cap2/Markdown.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="3" data-chapter-title="Node.js" data-filepath="docs/Cap3/Nodejs.md" data-basepath="../.." data-revision="Mon Mar 13 2017 10:19:24 GMT+0000 (Hora estándar GMT)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introducción
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/Cap1/GitBook.html">
+            
+                
+                    <a href="../../docs/Cap1/GitBook.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        GitBook
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/Cap2/Markdown.html">
+            
+                
+                    <a href="../../docs/Cap2/Markdown.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Markdown
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3" data-path="docs/Cap3/Nodejs.html">
+            
+                
+                    <a href="../../docs/Cap3/Nodejs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Node.js
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="docs/Cap4/Git-GitHub.html">
+            
+                
+                    <a href="../../docs/Cap4/Git-GitHub.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Git/GitHub
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="docs/Cap5/Atom.html">
+            
+                
+                    <a href="../../docs/Cap5/Atom.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Atom
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="docs/Cap6/Cloud9.html">
+            
+                
+                    <a href="../../docs/Cap6/Cloud9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Cloud 9
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="docs/Cap7/Pandoc.html">
+            
+                
+                    <a href="../../docs/Cap7/Pandoc.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Pandoc
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >Práctica 4: Estudiar las Cookies y las Sessiones en ExpressJS</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="nodejs">Node.js</h1>
+<p>NodeJS es un entorno en tiempo de ejecuci&#xF3;n con arquitectura orientada a eventos que act&#xFA;a del lado del servidor. Es de c&#xF3;digo abierto y est&#xE1; basado en el motor V8 de Google.</p>
+<h2 id="instalaci&#xF3;n-de-nodejs-en-ubuntu">Instalaci&#xF3;n de NodeJS en Ubuntu:</h2>
+<p>Para la instalaci&#xF3;n de NodeJS en ubunto existen dos m&#xE9;todos:</p>
+<ul>
+<li>Consola de comandos:</li>
+</ul>
+<p><img src="images/nodetr.png" alt=""></p>
+<p>Este m&#xE9;todo es muy sencillo y r&#xE1;pido de realizar, pero en cambio instala una versi&#xF3;n obsoleta de NodeJS.</p>
+<ul>
+<li>Descarga:</li>
+</ul>
+<p>Para la descarga de NodeJS debemos dirigirnos a la p&#xE1;gina <a href="https://nodejs.org" target="_blank"><strong>https://nodejs.org</strong></a> y descargar una de las versiones existentes.</p>
+<p><img src="images/nodedl.png" alt=""></p>
+<p>Al descomprimir el paquete descargado ya podemos hacer uso del node, aunque debemos dirigirnos a la carpeta /bin para poder ejecutarlo. Copiando el el archivo ejecutable Node a la carpeta <strong>usr/bin</strong> del sistema podemos hacer usuo del comando node desde cualquier parte del sistema.</p>
+<p><img src="images/nodecp.png" alt=""></p>
+<p>Al instalar NodeJS se nos instala tambi&#xE9;n el gestor de paquetes <strong>NPM</strong> (node package manager). Este gestor de paquetes nos permite instarlar software adicional para uso de NodeJS.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs/Cap2/Markdown.html" class="navigation navigation-prev " aria-label="Previous page: Markdown"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../docs/Cap4/Git-GitHub.html" class="navigation navigation-next " aria-label="Next page: Git/GitHub"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
