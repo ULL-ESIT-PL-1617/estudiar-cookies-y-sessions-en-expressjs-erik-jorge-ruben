@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Atom · GitBook</title>
+        <title>Middleware de manejo de errores · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../Cap6/Cloud9.html" />
+    <link rel="next" href="mw_incorporado.html" />
     
     
-    <link rel="prev" href="../Cap4/Git-GitHub.html" />
+    <link rel="prev" href="mw_direccionador.html" />
     
 
     </head>
@@ -154,9 +154,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="Atom.html">
+        <li class="chapter " data-level="1.6" data-path="../Cap5/Atom.html">
             
-                <a href="Atom.html">
+                <a href="../Cap5/Atom.html">
             
                     
                     Atom
@@ -219,9 +219,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="../Cap10/middle.html">
+        <li class="chapter " data-level="1.11" data-path="middle.html">
             
-                <a href="../Cap10/middle.html">
+                <a href="middle.html">
             
                     
                     Middleware
@@ -233,9 +233,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.1" data-path="../Cap10/mw_aplicacion.html">
+        <li class="chapter " data-level="1.11.1" data-path="mw_aplicacion.html">
             
-                <a href="../Cap10/mw_aplicacion.html">
+                <a href="mw_aplicacion.html">
             
                     
                     Middleware de nivel de aplicación
@@ -246,9 +246,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.2" data-path="../Cap10/mw_direccionador.html">
+        <li class="chapter " data-level="1.11.2" data-path="mw_direccionador.html">
             
-                <a href="../Cap10/mw_direccionador.html">
+                <a href="mw_direccionador.html">
             
                     
                     Middleware de nivel de direccionador
@@ -259,9 +259,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.3" data-path="../Cap10/mw_errores.html">
+        <li class="chapter active" data-level="1.11.3" data-path="mw_errores.html">
             
-                <a href="../Cap10/mw_errores.html">
+                <a href="mw_errores.html">
             
                     
                     Middleware de manejo de errores
@@ -272,9 +272,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.4" data-path="../Cap10/mw_incorporado.html">
+        <li class="chapter " data-level="1.11.4" data-path="mw_incorporado.html">
             
-                <a href="../Cap10/mw_incorporado.html">
+                <a href="mw_incorporado.html">
             
                     
                     Middleware incorporado
@@ -285,9 +285,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.5" data-path="../Cap10/mw_terceros.html">
+        <li class="chapter " data-level="1.11.5" data-path="mw_terceros.html">
             
-                <a href="../Cap10/mw_terceros.html">
+                <a href="mw_terceros.html">
             
                     
                     Middleware de terceros
@@ -346,7 +346,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Atom</a>
+        <a href=".." >Middleware de manejo de errores</a>
     </h1>
 </div>
 
@@ -361,15 +361,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="atom">Atom</h1>
-<p>Atom es un editor de c&#xF3;digo fuente para macOS, Linux y Windows con soporte para plug-ins escrito en Node.js, Incrustando el control de versiones Git y desarrollado por GitHub. Es una aplicaci&#xF3;n de escritorio construida utilizando tecnolog&#xED;as web.</p>
-<h2 id="instalaci&#xF3;n-de-atom-en-windows-10">Instalaci&#xF3;n de Atom en Windows 10</h2>
-<p>Para instalar Atom debemos acceder a la <a href="https://atom.io/" target="_blank">p&#xE1;gina principal de Atom</a> y descargar el instalador para windows</p>
-<p><img src="inicio-atom.PNG" alt="P&#xE1;gina principal de Atom"></p>
-<p>Una vez se haya descargado abrimos el ejecutable y comenzar&#xE1; la instalaci&#xF3;n autom&#xE1;ticamente.</p>
-<h2 id="entorno-de-desarrollo-de-atom">Entorno de desarrollo de Atom</h2>
-<p>Una vez finalice la instalaci&#xF3;n autom&#xE1;tica se desplegar&#xE1; el entorno de desarrollo de Atom el cual es similar a este:</p>
-<p><img src="entorno-atom.PNG" alt="Entorno de Atom"></p>
+                                <h1 id="middleware-de-manejo-de-errores">Middleware de manejo de errores</h1>
+<p>El middleware de manejo de errores siempre utiliza <em>cuatro</em> argumentos. Debe proporcionar cuatro argumentos para identificarlo como una funci&#xF3;n de middleware de manejo de errores. Aunque no necesite utilizar el objeto next, debe especificarlo para mantener la firma. De lo contrario, el objeto next se interpretar&#xE1; como middleware normal y no podr&#xE1; manejar errores.</p>
+<p>Defina las funciones de middleware de manejo de errores de la misma forma que otras funciones de middleware, excepto con cuatro argumentos en lugar de tres, espec&#xED;ficamente con la firma (err, req, res, next):</p>
+<pre><code>app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send(&apos;Something broke!&apos;);
+});
+</code></pre><p>Para obtener detalles sobre el middleware de manejo de errores, consulte: <a href="http://expressjs.com/es/guide/error-handling.html" target="_blank">Manejo de errores</a>.</p>
 
                                 
                                 </section>
@@ -397,12 +396,12 @@
 
             
                 
-                <a href="../Cap4/Git-GitHub.html" class="navigation navigation-prev " aria-label="Previous page: Git/GitHub">
+                <a href="mw_direccionador.html" class="navigation navigation-prev " aria-label="Previous page: Middleware de nivel de direccionador">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../Cap6/Cloud9.html" class="navigation navigation-next " aria-label="Next page: Cloud 9">
+                <a href="mw_incorporado.html" class="navigation navigation-next " aria-label="Next page: Middleware incorporado">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -413,7 +412,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Atom","level":"1.6","depth":1,"next":{"title":"Cloud 9","level":"1.7","depth":1,"path":"Cap6/Cloud9.md","ref":"Cap6/Cloud9.md","articles":[]},"previous":{"title":"Git/GitHub","level":"1.5","depth":1,"path":"Cap4/Git-GitHub.md","ref":"Cap4/Git-GitHub.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"Cap5/Atom.md","mtime":"2017-03-13T10:17:34.883Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T10:54:24.727Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Middleware de manejo de errores","level":"1.11.3","depth":2,"next":{"title":"Middleware incorporado","level":"1.11.4","depth":2,"path":"Cap10/mw_incorporado.md","ref":"Cap10/mw_incorporado.md","articles":[]},"previous":{"title":"Middleware de nivel de direccionador","level":"1.11.2","depth":2,"path":"Cap10/mw_direccionador.md","ref":"Cap10/mw_direccionador.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"Cap10/mw_errores.md","mtime":"2017-03-07T10:54:02.387Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T10:54:24.727Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
