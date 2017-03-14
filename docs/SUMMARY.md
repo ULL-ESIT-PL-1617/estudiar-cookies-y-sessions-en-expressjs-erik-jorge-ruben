@@ -17,4 +17,5 @@
   * [Middleware incorporado](Cap10/mw_incorporado.md)
   * [Middleware de terceros](Cap10/mw_terceros.md)
 * [Express API](Cap11/routing-api.md)
-
+* [Cookies](Cap12/cookie-parser.md)
+* [Sessions](Cap12/sessions.md)
