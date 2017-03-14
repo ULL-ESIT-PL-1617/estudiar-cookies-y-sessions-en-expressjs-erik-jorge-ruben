@@ -5,79 +5,87 @@ Las cookies es la vía que existe en html para dar persistencia. Como sabemos, e
 
 Para resolver este problema existen las cookies, son pequeñas cantidades de datos que se generan en el servidor, y que el cliente envía en cada petición, de esta manera, modificando variables dentro de esos datos, se puede guardar información acerca del cliente y el servidor es capaz de devolver una respuesta personalizada.
 
-#########################
+### Cookie-parser
+Cooke-parser es el paquete de node que proporciona las funciones necesarias para la generación y manejo de cookies en servidores creados con express.
 
+Este paquete hace uso de los paquetes **cookie** y **cookie-signature**, permitiendo acceder de una manera más simple a las fucinoes que ofrecen los dos paquetes nombrados.
 
-Cookies are small pieces of data sent from a website and are stored in user's web browser while user is browsing that website. Every time the user loads that website back, the browser sends that stored data back to website or server, to distinguish user's previous activity.
-
-What is Express?
-Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. For more visit here
-
-How Does Express Look Like?
-
-var express = require('express');
-
-var app = express();
-
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
-var server = app.listen(3000, function () {
-
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
-
-});
-
-
-Hello world express
-
-Installation
-So far we have seen, what is cookie and how a basic express app would look like. But now I will show you how to acquire cookie abilities in express. The very first thing you would be doing is to install cookie-parser middleware through npm into node_modules folder which can be found in your app folder. And to install it :
-
-Open your terminal,
-Browse to your app folder,
+Para la instalación de cookie-parser recurrimos al gestor de paquetes de node (npm), en linux, nos dirigimos a la carpeta que contine nuestro proyecto y en un terminal ejecutamos el siguiente comando:
+~~~bash
 $ npm install cookie-parser
 cookie-parser
+~~~
 
-Using Cookie-Parser
-Import** cookie-parser** into your app
-
+Para hacer uso de cookie parser en el servidor que estemos diseñando necesitamos importarlo en el fichero javascript en que lo necesitemos:
+~~~javascript
 var express = require('express');
 var cookieParser = require('cookie-parser');
-
 var app = express();
 app.use(cookieParser());
-Syntax
-Cookie-parser parses Cookie header and populate req.cookies with an object keyed by the cookie names. To set a new cookie lets define a new route in your express app like :
+~~~
 
+### Sintaxis:
+Cookie-parser parsea las cookies que vienen en la cabecera del request y las convierte en un objeto req.cookies etiquetado con los nombres de cada cookie, p.e:
+~~~javascript
+ req.cookies.user
+~~~
+Para crear una nueva cookie se define una nueva ruta en la app que estemos diseñando e indicamos la cookie antes de enviar la respuesta:
+~~~javascript
 app.get('/cookie',function(req, res){
      res.cookie(cookie_name , 'cookie_value').send('Cookie is set');
 });
-To check whether cookie has been set or not, goto to browser's console and write document.cookie.
+~~~
+Para comprobar si una cookie se está creando, simprlemente vamos a la consola de las herramientas de desarrollo del navegador y tecleamos document.cookie:
+# añadir una imagen de esto
 
-Browser sends back that cookie to the server, every time when it requests that website. And to get a cookie which a browser might be sending to server by attaching it to request header, we can write following code :
+Una vez generada la cookie en el servidor, el navegador del cliente envía esta de vuela en cada petición que hace al servidor, añadiéndola a la cabecera de dicha petición, de esta manera, para acceder a las cookies siplemente recorrimos al objeto req.cookie y podremos acceder a la misma en el servidor.
 
+~~~javascript
 app.get('/', function(req, res) {
   console.log("Cookies :  ", req.cookies);
 });
-How to Set Cookie Expiration Time?
+~~~
+### Extablecer el tiempo de validez de una cookie:
 Cookie expire time can be set easily by :
-
+A las cookies se le pueden pasar parámetros en el momento de su creación pasándole un objeto, con parejas de parámetro y valor. Existe dos formas de establecer un tiempo de valides para una cookie.
+* La primera de es establecer la fecha de expiración en miliseguntos:
+~~~javascript
 res.cookie(name , 'value', {expire : new Date() + 9999});
-Addition options for cookies can be set be passing an object as argument which carries additional settings for cookies. So, to set expire time to cookies, an object with expire property can be sent which holds the expire time in milliseconds.
-
-An alternate approach to set cookie expiration age is to use optional magAge property.
-
+~~~
+* La segunda forma es estableciendo su máxima duración mediante el parámetro maxAge:
+~~~javascript
 res.cookie(name, 'value', {maxAge : 9999});
-How to Delete Existing Cookie?
-Existing cookies can be deleted very easily using clearCookie method, which accepts the name of the cookie which you want to delete.
+~~~
 
+### Como eliminar una cookie
+
+Para eliminar una cookie existente simplemente es necesario hacer uso del método clearCookie, indicando como parámetro el nombre asignado a la cookie que se pretende eliminar:
+~~~javascript
 app.get('/clearcookie', function(req,res){
      clearCookie('cookie_name');
      res.send('Cookie deleted');
 });
-Now, once again you can go and check in browser's console that the particular cookie has been deleted.
+~~~
+
+### Métodos de la API:
+
+#### cookieParser(secret, options)
+
+- `secret` String utilizado para firmar la cookie, si no se pasa el parámetro, la cookie no será firmada.
+- `options` Objeto que se pasa como parámetros para la cración de la cookie. Detalles: [cookie](https://www.npmjs.org/package/cookie).
+  - `decode` función para decodificar los valores de la cookie.
+
+#### cookieParser.JSONCookie(str)
+Parsea los valores de la cookie como objeto json.
+
+#### cookieParser.JSONCookies(cookies)
+
+Itera sobre los valores del objeto que se pasa como parámetro llamando a `JSONCookie` con cada valor.
+
+#### cookieParser.signedCookie(str, secret)
+
+Parsea la cookie como una cookie firmada, el argumento `secret` es la cadena empleada para firmar la cokie.
+
+#### cookieParser.signedCookies(cookies, secret)
+
+Itera solbre los objetos en cookies llamando a `signedCookies` con cada uno de los valores. `secret` puede ser un valor o un array de valores.
