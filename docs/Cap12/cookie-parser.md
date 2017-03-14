@@ -36,7 +36,8 @@ app.get('/cookie',function(req, res){
 });
 ~~~
 Para comprobar si una cookie se está creando, simprlemente vamos a la consola de las herramientas de desarrollo del navegador y tecleamos document.cookie:
-# añadir una imagen de esto
+
+![Consola](./img/consola.png)
 
 Una vez generada la cookie en el servidor, el navegador del cliente envía esta de vuela en cada petición que hace al servidor, añadiéndola a la cabecera de dicha petición, de esta manera, para acceder a las cookies siplemente recorrimos al objeto req.cookie y podremos acceder a la misma en el servidor.
 
