@@ -18,5 +18,10 @@
   * [Middleware de terceros](Cap10/mw_terceros.md)
 * [Express API](Cap11/routing-api.md)
 * [Cookies](Cap12/cookie-parser.md)
+<<<<<<< HEAD
+* [Sessions](Cap12/sessions.md)
+* [Express-Validator](Cap13/Express-Validator_Express-Session.md)
+=======
 * [Sessions](Cap13/sessions.md)
 * [ExpressValidator](Cap13/Express-Validator_Express-Session.md)
+>>>>>>> 03276d626d85e1b476a2b718014a2f63a46e70bf
