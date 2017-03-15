@@ -29,5 +29,10 @@ app.use('/cookies', cookies);
 
 
 // Establecer puerto de escucha
-app.listen(app.get('port'));
+const server = app.listen(app.get('port'), () => {
+  const host = server.address().address;
+  const port = server.address().port;
+
+  console.log(`Example app listening at http://${host}:${port}`);
+});
 //app.listen(port_iaas);

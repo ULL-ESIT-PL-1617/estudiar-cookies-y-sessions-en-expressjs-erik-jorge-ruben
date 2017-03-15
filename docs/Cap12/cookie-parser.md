@@ -1,7 +1,7 @@
 ## Manejo de cookies en Express
 ### ¿Qué son las cookies?
 
-Las cookies es la vía que existe en html para dar persistencia. Como sabemos, el estandar html por si solo no permite guardar información acerca del estado en el que se encuentran las transacciónes que se realizan, por lo que no se podría almacenar información ni personalizar el contenido que se muestra, por ejemplo: un servicio web no sabría si las peticiones que llegan son de un usario logeado o no.
+Las cookies es la vía que existe en html para dar persistencia. Como sabemos, el estándar html por si solo no permite guardar información acerca del estado en el que se encuentran las transacciónes que se realizan, por lo que no se podría almacenar información ni personalizar el contenido que se muestra, por ejemplo: un servicio web no sabría si las peticiones que llegan son de un usario logeado o no.
 
 Para resolver este problema existen las cookies, son pequeñas cantidades de datos que se generan en el servidor, y que el cliente envía en cada petición, de esta manera, modificando variables dentro de esos datos, se puede guardar información acerca del cliente y el servidor es capaz de devolver una respuesta personalizada.
 
@@ -35,11 +35,11 @@ app.get('/cookie',function(req, res){
      res.cookie(cookie_name , 'cookie_value').send('Cookie is set');
 });
 ~~~
-Para comprobar si una cookie se está creando, simprlemente vamos a la consola de las herramientas de desarrollo del navegador y tecleamos document.cookie:
+Para comprobar si una cookie se está creando, simplemente vamos a la consola de las herramientas de desarrollo del navegador y tecleamos document.cookie:
 
 ![Consola](./img/consola.png)
 
-Una vez generada la cookie en el servidor, el navegador del cliente envía esta de vuela en cada petición que hace al servidor, añadiéndola a la cabecera de dicha petición, de esta manera, para acceder a las cookies siplemente recorrimos al objeto req.cookie y podremos acceder a la misma en el servidor.
+Una vez generada la cookie en el servidor, el navegador del cliente envía esta de vuelta en cada petición que hace al servidor, añadiéndola a la cabecera de dicha petición, de esta manera, para acceder a las cookies simplemente recurrimos al objeto req.cookie y podremos acceder a la misma en el servidor.
 
 ~~~javascript
 app.get('/', function(req, res) {
@@ -73,7 +73,7 @@ app.get('/clearcookie', function(req,res){
 #### cookieParser(secret, options)
 
 - `secret` String utilizado para firmar la cookie, si no se pasa el parámetro, la cookie no será firmada.
-- `options` Objeto que se pasa como parámetros para la cración de la cookie. Detalles: [cookie](https://www.npmjs.org/package/cookie).
+- `options` Objeto que se pasa como parámetros para la creación de la cookie. Detalles: [cookie](https://www.npmjs.org/package/cookie).
   - `decode` función para decodificar los valores de la cookie.
 
 #### cookieParser.JSONCookie(str)

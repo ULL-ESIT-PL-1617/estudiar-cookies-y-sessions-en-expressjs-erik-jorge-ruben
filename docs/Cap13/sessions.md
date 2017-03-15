@@ -4,7 +4,7 @@ Debido a que HTTP no tiene estado, para asociar una petición a alguna otra soli
 
 Para crear las sesions necesitaremos [express-session](https://ewiggin.gitbooks.io/expressjs-middleware/content/express-session.html)
 
-EN este ejemplo, vamos a utilizar rl almacén prederteminado para el almacenamiento de sesiones. es decir MemoryStore. Nunca se debe utilizar esta memoria en entornos de producción. EL midleware sesión se ocupa de todas las cosas oara nosotros, es decir, la creación de la sesión, el esablecimiento de la cookie de sesión y crear el objeto de sesión en el objeto request.
+EN este ejemplo, vamos a utilizar el almacén prederterminado para el almacenamiento de sesiones. es decir MemoryStore. Nunca se debe utilizar esta memoria en entornos de producción. EL middleware sesión se ocupa de todas las cosas para nosotros, es decir, la creación de la sesión, el establecimiento de la cookie de sesión y crear el objeto de sesión en el objeto request.
 
 
 
@@ -13,12 +13,12 @@ Siempre que se realiza una petición del mismo cliente, tendremos la informació
     var express = require('express');
     var cookieParser = require('cookie-parser');
     var session = require('express-session');
-    
+
     var app = express();
-    
+
     app.use(cookieParser());
     app.use(session({secret: "¡Shh, es un secreto!"}));
-    
+
     app.get('/', function(req, res){
         if(req.session.page_views){
             req.session.page_views++;
@@ -27,14 +27,7 @@ Siempre que se realiza una petición del mismo cliente, tendremos la informació
         req.session.page_views = 1;
         res.send("¡Bienvenido a esta página por primera vez!");
     });
-    
-    app.listen(8080); 
 
-En este ejemplo se crea un contador de visita de un cliente. Cuando un usuario visita el sitio, se crea una nueva sesión para el usuario y se le asigna un acookie. La próxima vez que el usuario entre, se comprueba la cookie y la variable de sesión page_view se actualiza.
+    app.listen(8080);
 
-
-
-
-
-
-
+En este ejemplo se crea un contador de visita de un cliente. Cuando un usuario visita el sitio, se crea una nueva sesión para el usuario y se le asigna una cookie. La próxima vez que el usuario entre, se comprueba la cookie y la variable de sesión page_view se actualiza.
