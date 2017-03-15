@@ -10,6 +10,8 @@ EN este ejemplo, vamos a utilizar el almacén prederterminado para el almacenami
 
 Siempre que se realiza una petición del mismo cliente, tendremos la información de sesión almacenada con nosotros.
 
+~~~javascript
+
     var express = require('express');
     var cookieParser = require('cookie-parser');
     var session = require('express-session');
@@ -29,5 +31,5 @@ Siempre que se realiza una petición del mismo cliente, tendremos la informació
     });
 
     app.listen(8080);
-
+~~~
 En este ejemplo se crea un contador de visita de un cliente. Cuando un usuario visita el sitio, se crea una nueva sesión para el usuario y se le asigna una cookie. La próxima vez que el usuario entre, se comprueba la cookie y la variable de sesión page_view se actualiza.
