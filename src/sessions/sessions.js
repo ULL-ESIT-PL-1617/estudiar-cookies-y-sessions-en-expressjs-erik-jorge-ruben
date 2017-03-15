@@ -3,11 +3,12 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 var app = express();
+var route = express.Router();
 
-app.use(cookieParser());
-app.use(session({secret: "¡Shh, es un secreto!"}));
+route.use(cookieParser());
+route.use(session({secret: "¡Shh, es un secreto!"}));
 
-app.get('/', function(req, res){
+route.get('/', function(req, res){
     if(req.session.page_views){
         req.session.page_views++;
         res.send("Has visitado esta página " + req.session.page_views + " veces");
@@ -17,3 +18,4 @@ app.get('/', function(req, res){
 });
 
 //app.listen(8080);
+module.exports = route;
