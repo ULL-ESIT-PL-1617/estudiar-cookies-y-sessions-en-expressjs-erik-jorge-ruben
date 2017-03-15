@@ -18,7 +18,7 @@ route.get('/tiempo', function (req, res){
 
 route.get('/tiempo/prueba', function (req, res){
   if (req.cookies.tiempo){
-    res.send("La cookie existes y está vigente");
+    res.send("La cookie existe y está vigente");
   } else {
     res.send("La cookie ha expirado");
   }
