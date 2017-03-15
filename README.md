@@ -28,7 +28,7 @@
 | ---------------------------- | ---------------------------------------- |
 | Jorge Alonso Hernández       | [Jorge]() |
 | Erik Andreas Barreto de Vera | [Erik](https://young-castle-43720.herokuapp.com/) |
-| Rubén Labrador Páez          | [Rubén]() |
+| Rubén Labrador Páez          | [Rubén](https://cookies-ruben.herokuapp.com/) |
 
 
 ### IAAS
@@ -37,12 +37,12 @@
 | ---------------------------- | ---------------------------------------- |
 | Jorge Alonso Hernández       | [Jorge]() |
 | Erik Andreas Barreto de Vera | [Erik](10.6.128.119:8000) |
-| Rubén Labrador Páez          | [Rubén]() |
+| Rubén Labrador Páez          | [Rubén](http://10.6.128.156:8080/) |
 
 ### Gitbook
 
 | Nombre                       | Enlace                    
 | ---------------------------- | ---------------------------------------- |
 | Jorge Alonso Hernández       | [Jorge]() |
-| Erik Andreas Barreto de Vera | [Erik](https://erikbv99421.gitbooks.io/practica4/content/) | 
-| Rubén Labrador Páez          | [Rubén]() |
+| Erik Andreas Barreto de Vera | [Erik](https://erikbv99421.gitbooks.io/practica4/content/) |
+| Rubén Labrador Páez          | [Rubén](https://alu0100309553.gitbooks.io/practica4/content/) |
