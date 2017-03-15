@@ -24,6 +24,11 @@
 
 ### Heroku
 
+| Nombre                       | Enlace                    
+| ---------------------------- | ---------------------------------------- |
+| Jorge Alonso Hernández       | [Jorge]() |
+| Erik Andreas Barreto de Vera | [Erik](https://young-castle-43720.herokuapp.com/) | 
+| Rubén Labrador Páez          | [Rubén]() |
 
 
 ### IAAS
@@ -31,4 +36,3 @@
 
 
 ### Gitbook
-
