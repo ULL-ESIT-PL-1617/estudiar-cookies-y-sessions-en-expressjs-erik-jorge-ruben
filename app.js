@@ -7,6 +7,8 @@ var app = express();
 //var routing_api = require('./src/routing_api');
 //var middleware = require('./src/middleware');
 var cookies = require('./src/cookies/cookie.js');
+var sessions = require('./src/sessions/sessions.js');
+var auth = require('./src/sessions/auth.js');
 
 // HEROKU
 app.set('port', (process.env.PORT || 8080));
@@ -24,6 +26,9 @@ app.use(express.static(path.resolve('public')));
 //app.use('/myFirstRoute', routing_api);
 //app.use('/middleware', middleware);
 app.use('/cookies', cookies);
+app.use('/sessions', sessions);
+app.use('/auth', auth);
+
 
 
 

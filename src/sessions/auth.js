@@ -37,5 +37,5 @@ app.get('/content', auth, function (req, res) {
     res.send("You can only see this after you've logged in.");
 });
 
-app.listen(3000);
-console.log("app running at http://localhost:3000");
+/*app.listen(3000);
+console.log("app running at http://localhost:3000");*/

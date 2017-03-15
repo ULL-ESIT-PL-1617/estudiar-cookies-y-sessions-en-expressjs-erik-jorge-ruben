@@ -26,7 +26,7 @@
 
 | Nombre                       | Enlace                    
 | ---------------------------- | ---------------------------------------- |
-| Jorge Alonso Hernández       | [Jorge]() |
+| Jorge Alonso Hernández       | [Jorge](https://powerful-refuge-55760.herokuapp.com/) |
 | Erik Andreas Barreto de Vera | [Erik](https://young-castle-43720.herokuapp.com/) |
 | Rubén Labrador Páez          | [Rubén](https://cookies-ruben.herokuapp.com/) |
 
@@ -35,14 +35,14 @@
 
 | Nombre                       | Enlace                    
 | ---------------------------- | ---------------------------------------- |
-| Jorge Alonso Hernández       | [Jorge]() |
-| Erik Andreas Barreto de Vera | [Erik](10.6.128.119:8000) |
+| Jorge Alonso Hernández       | [Jorge](http://10.6.129.212:8080/) |
+| Erik Andreas Barreto de Vera | [Erik](http://10.6.128.119:8080) |
 | Rubén Labrador Páez          | [Rubén](http://10.6.128.156:8080/) |
 
 ### Gitbook
 
 | Nombre                       | Enlace                    
 | ---------------------------- | ---------------------------------------- |
-| Jorge Alonso Hernández       | [Jorge]() |
+| Jorge Alonso Hernández       | [Jorge](https://alu0100767803.gitbooks.io/estudiar-cookies-y-sessions-en-expressjs/content/) |
 | Erik Andreas Barreto de Vera | [Erik](https://erikbv99421.gitbooks.io/practica4/content/) |
 | Rubén Labrador Páez          | [Rubén](https://alu0100309553.gitbooks.io/practica4/content/) |
