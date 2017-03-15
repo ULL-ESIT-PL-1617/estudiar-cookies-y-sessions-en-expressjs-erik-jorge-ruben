@@ -27,12 +27,22 @@
 | Nombre                       | Enlace                    
 | ---------------------------- | ---------------------------------------- |
 | Jorge Alonso Hernández       | [Jorge]() |
-| Erik Andreas Barreto de Vera | [Erik](https://young-castle-43720.herokuapp.com/) | 
+| Erik Andreas Barreto de Vera | [Erik](https://young-castle-43720.herokuapp.com/) |
 | Rubén Labrador Páez          | [Rubén]() |
 
 
 ### IAAS
 
-
+| Nombre                       | Enlace                    
+| ---------------------------- | ---------------------------------------- |
+| Jorge Alonso Hernández       | [Jorge]() |
+| Erik Andreas Barreto de Vera | [Erik](10.6.128.119:8000) |
+| Rubén Labrador Páez          | [Rubén]() |
 
 ### Gitbook
+
+| Nombre                       | Enlace                    
+| ---------------------------- | ---------------------------------------- |
+| Jorge Alonso Hernández       | [Jorge]() |
+| Erik Andreas Barreto de Vera | [Erik](https://erikbv99421.gitbooks.io/practica4/content/) | 
+| Rubén Labrador Páez          | [Rubén]() |
